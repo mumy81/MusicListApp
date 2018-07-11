@@ -42,6 +42,9 @@ public class AlbumCreateController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=utf-8");
+		
 		String name = request.getParameter("name");
 		String artist = request.getParameter("artist");
 		String date = request.getParameter("date");
@@ -58,7 +61,8 @@ public class AlbumCreateController extends HttpServlet {
 		session.setAttribute("albumList", albumList);
 		
 		System.out.println(albumList);
-		response.setContentType("text/html; charset=utf-8");
+		
+		
 		request.setAttribute("album", album);
 		// response.sendRedirect(arg0);
 		request.getServletContext().getRequestDispatcher("/view/albumcreated.jsp").forward(request, response);
